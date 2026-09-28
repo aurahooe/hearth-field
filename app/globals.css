@@ -1,0 +1,108 @@
+:root {
+  --ink: #1c1712;
+  --paper: #f3eadc;
+  --paper-2: #e8dcc8;
+  --rule: #c9b79a;
+  --ember: #b5522a;
+  --mute: #6e6254;
+  --card: #fff8ee;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+  min-height: 100%;
+}
+
+body {
+  background-image:
+    radial-gradient(ellipse at 12% -10%, rgba(181,82,42,0.07), transparent 42%),
+    radial-gradient(ellipse at 90% 110%, rgba(28,23,18,0.06), transparent 40%);
+}
+
+a { color: inherit; text-decoration: none; }
+
+.wrap {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 28px 22px 80px;
+}
+
+header.top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 22px;
+  border-bottom: 1px solid var(--rule);
+  animation: rise 0.7s ease both;
+}
+
+.mark {
+  font-size: 13px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ember);
+}
+
+nav a {
+  margin-left: 18px;
+  font-size: 14px;
+  color: var(--mute);
+  border-bottom: 1px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+nav a:hover { color: var(--ink); border-color: var(--ink); }
+
+.hero {
+  padding: 56px 0 36px;
+  animation: rise 0.85s 0.08s ease both;
+}
+
+.hero h1 {
+  font-weight: 400;
+  font-size: clamp(40px, 8vw, 72px);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+}
+
+.hero p {
+  margin-top: 18px;
+  max-width: 36em;
+  color: var(--mute);
+  font-size: 17px;
+  line-height: 1.55;
+}
+
+.grid { display: grid; gap: 16px; }
+@media (min-width: 720px) { .grid { grid-template-columns: 1fr 1fr; } }
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--rule);
+  padding: 22px 22px 18px;
+  animation: rise 0.6s ease both;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+.card:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(28,23,18,0.08); }
+.card .meta { font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--mute); margin-bottom: 10px; }
+.card p { line-height: 1.55; font-size: 17px; }
+.form { display: grid; gap: 12px; max-width: 420px; animation: rise 0.7s ease both; }
+input, textarea, button { font: inherit; }
+input, textarea { background: var(--card); border: 1px solid var(--rule); padding: 12px 14px; color: var(--ink); outline: none; }
+input:focus, textarea:focus { border-color: var(--ember); }
+button { background: var(--ink); color: var(--paper); border: 0; padding: 12px 16px; cursor: pointer; letter-spacing: 0.04em; transition: transform 0.2s ease, background 0.2s; }
+button:hover { transform: translateY(-1px); background: #2a241d; }
+button.ghost { background: transparent; color: var(--ink); border: 1px solid var(--rule); }
+.check { display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--mute); }
+.hours { margin-top: 56px; padding-top: 28px; border-top: 1px solid var(--rule); }
+.hours h2 { font-weight: 400; font-size: 22px; margin-bottom: 16px; }
+.hour { padding: 16px 0; border-bottom: 1px dashed var(--rule); animation: rise 0.5s ease both; }
+.hour time { display: block; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ember); margin-bottom: 6px; }
+@keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+.err { color: #8a2a1a; font-size: 14px; }
+.ok { color: #2d5a38; font-size: 14px; }
